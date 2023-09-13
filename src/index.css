@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* styles applied in index.css are applied to the entire app */
+
+/* Global variables, can be accessed on any css file */
+:root {
+  --dark-color: #181e1e;
+  --red-color: #e63946;
+  --pink-color: #ff6864;
+  --yellow-color: #ffca28;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* star selects every element and select every before and after psuedo class */
+*,
+*::after,
+*::before {
+  box-sizing: border-box; /* sizing is true; size includes padding, margin, border, etc... in defined pixels*/
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+  color: #fff;
+}
+
+section h2 {
+  font-size: 40px;
+  font-weight: 800;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--red-color);
+  bottom: -10px;
+  left: 0;
+}
+
+section h2.light::after {
+  background: var(--yellow-color);
+}
+.black {
+  background: black;
+}
+
+.dark-gray {
+  background: var(--dark-color);
+}
+
+.pink {
+  background: var(--pink-color);
+}
+
+section .content-container {
+  display: flex;
+}
+
+/* Tablet Version */
+@media (max-width: 1040px) {
+  .wrapper {
+    max-width: 694px;
+  }
+}
+
+/* Smart Version */
+@media (max-width: 720px) {
+  .wrapper {
+    padding: 0 32px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  section h2::after {
+    width: 50px;
+    bottom: 0;
+  }
 }
